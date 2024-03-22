@@ -70,6 +70,7 @@ body * {
 }
 
 .handle {
+  animation: slide-back 0.2s forwards;
   background: var(--handle-url) white no-repeat center;
   border: none;
   border-radius: 50%;
@@ -81,9 +82,12 @@ body * {
   z-index: 1;
 }
 
+.handle:hover {
+  outline: 8px solid var(--highlight--color);
+}
+
 .light .handle {
-  left: initial;
-  right: 0;
+  animation: slide-in 0.2s forwards;
 }
 
 .track {
@@ -151,5 +155,23 @@ footer {
   
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from  {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
